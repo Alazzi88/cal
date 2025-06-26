@@ -1,0 +1,5 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+html { direction: rtl; }
+body { margin: 0; font-family: 'Almarai', sans-serif; }
