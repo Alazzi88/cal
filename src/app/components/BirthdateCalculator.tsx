@@ -1,4 +1,3 @@
-// src/components/BirthdateCalculator.tsx
 'use client';
 
 import { useState } from 'react';
@@ -15,8 +14,16 @@ export default function BirthdateCalculator() {
     dt.setFullYear(dt.getFullYear() - years);
     dt.setMonth(dt.getMonth() - months);
 
-    const monthName = dt.toLocaleString('ar-EG', { month: 'long' });
-    setResult(`المولود في: ${monthName} ${dt.getFullYear()}`);
+    const monthNumber = dt.getMonth() + 1;
+    const year = dt.getFullYear();
+    const monthNameAr = dt.toLocaleString('ar-EG', { month: 'long' });
+    const monthAbbrAr = dt.toLocaleString('ar-EG', { month: 'short' });
+    const monthNameEn = dt.toLocaleString('en-US', { month: 'long' });
+    const monthAbbrEn = dt.toLocaleString('en-US', { month: 'short' });
+
+    setResult(
+      `المولود في: ${monthNameAr} (${monthNumber}, ${monthAbbrAr}) ${year} / Born in: ${monthNameEn} (${monthNumber}, ${monthAbbrEn}) ${year}`
+    );
   };
 
   return (
@@ -109,6 +116,7 @@ export default function BirthdateCalculator() {
           border-radius: 4px;
           font-weight: 600;
           text-align: center;
+          direction: ltr;
         }
       `}</style>
     </>
